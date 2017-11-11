@@ -612,6 +612,12 @@
 			"revisionTime": "2017-03-21T23:07:31Z"
 		},
 		{
+			"checksumSHA1": "YXWAUFGaKLSE8BIaCUIxAEW87s4=",
+			"path": "github.com/sethgrid/pester",
+			"revision": "0af5bab1e1ea2860c5aef8e77427bab011d774d8",
+			"revisionTime": "2017-09-19T13:57:42Z"
+		},
+		{
 			"checksumSHA1": "z2kAtVle4NFV2OExI85fZoTcsI4=",
 			"path": "github.com/ulikunitz/xz",
 			"revision": "0c6b41e72360850ca4f98dc341fd999726ea007f",
@@ -747,10 +753,10 @@
 			"revisionTime": "2017-08-04T00:04:37Z"
 		},
 		{
-			"checksumSHA1": "txD8w9+dmFn4uG8BbqdZwXawT6E=",
+			"checksumSHA1": "iN//qSunKGImecnRCcQrGTFgJMk=",
 			"path": "golang.org/x/net/publicsuffix",
-			"revision": "1c05540f6879653db88113bc4a2b70aec4bd491f",
-			"revisionTime": "2017-08-04T00:04:37Z"
+			"revision": "a337091b0525af65de94df2eb7e98bd9962dcbe2",
+			"revisionTime": "2016-10-09T20:39:03Z"
 		},
 		{
 			"checksumSHA1": "u/r66lwYfgg682u5hZG7/E7+VCY=",
