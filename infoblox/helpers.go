@@ -8,7 +8,7 @@ import (
 )
 
 // Finds networks by search term, such as network CIDR.
-func getNetworks(client *infoblox.Client, term string) ([]map[string]interface{}, error) {
+func getNetworks(client *fibClient, term string) ([]map[string]interface{}, error) {
 	s := "network"
 	q := []infoblox.Condition{
 		infoblox.Condition{

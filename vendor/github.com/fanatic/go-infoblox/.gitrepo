@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/wtsi-hgi/go-infoblox.git
+	branch = http-pester
+	commit = 7c16167d71af4dd83463651437aadf5ac3c5fb2e
+	parent = 998298ddfb6a24ac6159ce4de13e7c8c520c17c0
+	cmdver = 0.3.1
