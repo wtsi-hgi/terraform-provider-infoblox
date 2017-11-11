@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/sethgrid/pester.git
+	branch = master
+	commit = 0af5bab1e1ea2860c5aef8e77427bab011d774d8
+	parent = b6f955c7bb0932a4174d771bfef54ca2e4cf1390
+	cmdver = 0.3.1
