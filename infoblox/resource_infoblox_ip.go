@@ -49,6 +49,7 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/fanatic/go-infoblox"
 	"github.com/hashicorp/terraform/helper/schema"
 )
 
@@ -98,7 +99,7 @@ func resourceInfobloxIPCreate(d *schema.ResourceData, meta interface{}) error {
 		err    error
 	)
 
-	client := meta.(*fibClient)
+	client := meta.(*infoblox.Client)
 	excludedAddresses := buildExcludedAddressesArray(d)
 
 	if cidr, ok := d.GetOk("cidr"); ok {
@@ -117,7 +118,7 @@ func resourceInfobloxIPCreate(d *schema.ResourceData, meta interface{}) error {
 	return nil
 }
 
-func getNextAvailableIPFromCIDR(client *fibClient, cidr string, excludedAddresses []string) (string, error) {
+func getNextAvailableIPFromCIDR(client *infoblox.Client, cidr string, excludedAddresses []string) (string, error) {
 	var (
 		result string
 		err    error
@@ -147,7 +148,7 @@ func getNextAvailableIPFromCIDR(client *fibClient, cidr string, excludedAddresse
 	return result, err
 }
 
-func getNextAvailableIPFromRange(client *fibClient, ipRange string) (string, error) {
+func getNextAvailableIPFromRange(client *infoblox.Client, ipRange string) (string, error) {
 	var (
 		result string
 		err    error

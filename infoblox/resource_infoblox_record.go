@@ -54,7 +54,7 @@ func resourceInfobloxRecord() *schema.Resource {
 }
 
 func resourceInfobloxRecordCreate(d *schema.ResourceData, meta interface{}) error {
-	client := meta.(*fibClient)
+	client := meta.(*infoblox.Client)
 
 	record := url.Values{}
 	if err := getAll(d, record); err != nil {
@@ -108,7 +108,7 @@ func handleReadError(d *schema.ResourceData, record_type string, err error) erro
 }
 
 func resourceInfobloxRecordRead(d *schema.ResourceData, meta interface{}) error {
-	client := meta.(*fibClient)
+	client := meta.(*infoblox.Client)
 
 	switch strings.ToUpper(d.Get("type").(string)) {
 	case "A":
@@ -155,7 +155,7 @@ func resourceInfobloxRecordRead(d *schema.ResourceData, meta interface{}) error 
 }
 
 func resourceInfobloxRecordUpdate(d *schema.ResourceData, meta interface{}) error {
-	client := meta.(*fibClient)
+	client := meta.(*infoblox.Client)
 	var recID string
 	var err, updateErr error
 	switch strings.ToUpper(d.Get("type").(string)) {
@@ -210,7 +210,7 @@ func resourceInfobloxRecordUpdate(d *schema.ResourceData, meta interface{}) erro
 }
 
 func resourceInfobloxRecordDelete(d *schema.ResourceData, meta interface{}) error {
-	client := meta.(*fibClient)
+	client := meta.(*infoblox.Client)
 
 	log.Printf("[INFO] Deleting Infoblox Record: %s, %s", d.Get("name").(string), d.Id())
 	switch strings.ToUpper(d.Get("type").(string)) {
