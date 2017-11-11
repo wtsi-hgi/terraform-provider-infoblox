@@ -144,7 +144,7 @@ func TestAccInfobloxRecordCname(t *testing.T) {
 }
 
 func testAccCheckInfobloxRecordDestroy(s *terraform.State) error {
-	client := testAccProvider.Meta().(*infoblox.Client)
+	client := testAccProvider.Meta().(*fibClient)
 
 	for _, rs := range s.RootModule().Resources {
 		if rs.Type != "infoblox_record" {
@@ -183,7 +183,7 @@ func testAccCheckInfobloxRecordAExists(n string, record *infoblox.RecordAObject)
 			return fmt.Errorf("No Record ID is set")
 		}
 
-		client := testAccProvider.Meta().(*infoblox.Client)
+		client := testAccProvider.Meta().(*fibClient)
 		foundRecord, err := client.GetRecordA(rs.Primary.ID, nil)
 
 		if err != nil {
@@ -212,7 +212,7 @@ func testAccCheckInfobloxRecordAAAAExists(n string, record *infoblox.RecordAAAAO
 			return fmt.Errorf("No Record ID is set")
 		}
 
-		client := testAccProvider.Meta().(*infoblox.Client)
+		client := testAccProvider.Meta().(*fibClient)
 		foundRecord, err := client.GetRecordAAAA(rs.Primary.ID, nil)
 
 		if err != nil {
@@ -241,7 +241,7 @@ func testAccCheckInfobloxRecordCnameExists(n string, record *infoblox.RecordCnam
 			return fmt.Errorf("No Record ID is set")
 		}
 
-		client := testAccProvider.Meta().(*infoblox.Client)
+		client := testAccProvider.Meta().(*fibClient)
 		foundRecord, err := client.GetRecordCname(rs.Primary.ID, nil)
 
 		if err != nil {
