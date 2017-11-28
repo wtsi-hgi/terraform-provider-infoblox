@@ -5,10 +5,13 @@ import (
 	"log"
 	"net/url"
 	"strings"
+	"sync"
 
 	"github.com/fanatic/go-infoblox"
 	"github.com/hashicorp/terraform/helper/schema"
 )
+
+var mux sync.Mutex // use to prevent concurrent reads
 
 func resourceInfobloxRecord() *schema.Resource {
 	return &schema.Resource{
@@ -109,6 +112,11 @@ func handleReadError(d *schema.ResourceData, record_type string, err error) erro
 
 func resourceInfobloxRecordRead(d *schema.ResourceData, meta interface{}) error {
 	client := meta.(*infoblox.Client)
+
+	// prevent parallel reads which were causing timeout errors
+	mux.Lock()
+	defer mux.Unlock()
+	// ----------------------------------------------------------
 
 	switch strings.ToUpper(d.Get("type").(string)) {
 	case "A":
